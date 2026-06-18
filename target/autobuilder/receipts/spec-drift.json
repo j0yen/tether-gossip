@@ -1,0 +1,10 @@
+{
+  "schema": "spec-drift.v1",
+  "summary": {
+    "drift_count": 0,
+    "unavailable_count": 0,
+    "help_fails_count": 0
+  },
+  "verdict": "pass",
+  "notes": "No existing binaries referenced in PRD; new binary wm-tether-gossip is being built."
+}
