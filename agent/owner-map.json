@@ -1,0 +1,15 @@
+{
+  "schema": "autobuilder.owner_map.v1",
+  "entries": [
+    { "path": "src/lib.rs", "owner": "tether-gossip-core", "lanes": ["core-logic", "dedup", "loop-guard"] },
+    { "path": "src/main.rs", "owner": "tether-gossip-bin", "lanes": ["cli", "nats-integration"] },
+    { "path": "tests/acceptance_ac1.rs", "owner": "harness-ac1", "lanes": ["core-logic"] },
+    { "path": "tests/acceptance_ac2.rs", "owner": "harness-ac2", "lanes": ["core-logic", "loop-guard"] },
+    { "path": "tests/acceptance_ac3.rs", "owner": "harness-ac3", "lanes": ["dedup"] },
+    { "path": "tests/acceptance_ac4.rs", "owner": "harness-ac4", "lanes": ["loop-guard"] },
+    { "path": "tests/acceptance_ac5.rs", "owner": "harness-ac5", "lanes": ["core-logic"] },
+    { "path": "tests/acceptance_ac7.rs", "owner": "harness-ac7", "lanes": ["cli"] },
+    { "path": "tests/mocks/ac6.rs", "owner": "harness-mock-ac6", "lanes": ["core-logic", "dedup"] },
+    { "path": "tests/proptest_invariants.rs", "owner": "harness-proptest", "lanes": ["core-logic", "dedup"] }
+  ]
+}

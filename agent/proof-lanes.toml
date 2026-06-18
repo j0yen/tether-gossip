@@ -1,0 +1,32 @@
+# proof-lanes.toml — maps changed paths to proof lanes.
+# Every changed path in Stage 3 must route to at least one lane.
+
+[[lane]]
+id = "core-logic"
+description = "Core tail/apply/persist logic"
+paths = ["src/lib.rs", "tests/acceptance_ac1.rs", "tests/acceptance_ac2.rs", "tests/acceptance_ac5.rs", "tests/mocks/ac6.rs", "tests/proptest_invariants.rs"]
+gate = "cargo test --test acceptance_ac1 --test acceptance_ac2 --test acceptance_ac5 --test mocks --test proptest_invariants"
+
+[[lane]]
+id = "dedup"
+description = "Deduplication invariant"
+paths = ["src/lib.rs", "tests/acceptance_ac3.rs", "tests/proptest_invariants.rs"]
+gate = "cargo test --test acceptance_ac3 --test proptest_invariants"
+
+[[lane]]
+id = "loop-guard"
+description = "Loop-guard self-echo prevention"
+paths = ["src/lib.rs", "tests/acceptance_ac2.rs", "tests/acceptance_ac4.rs"]
+gate = "cargo test --test acceptance_ac2 --test acceptance_ac4"
+
+[[lane]]
+id = "cli"
+description = "CLI surface and sigpipe"
+paths = ["src/main.rs", "tests/acceptance_ac7.rs"]
+gate = "cargo test --test acceptance_ac7"
+
+[[lane]]
+id = "nats-integration"
+description = "NATS publish sink integration"
+paths = ["src/main.rs", "src/lib.rs"]
+gate = "cargo check --workspace"

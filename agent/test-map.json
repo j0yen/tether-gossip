@@ -1,0 +1,12 @@
+{
+  "schema": "autobuilder.test_map.v1",
+  "entries": [
+    { "ac": "AC1", "test_file": "tests/acceptance_ac1.rs", "test_name": "tail_publishes_single_event_with_correct_body_and_seq" },
+    { "ac": "AC2", "test_file": "tests/acceptance_ac2.rs", "test_name": "apply_appends_with_provenance_header_and_preserves_prior_content" },
+    { "ac": "AC3", "test_file": "tests/acceptance_ac3.rs", "test_name": "dedup_same_node_seq_applied_once" },
+    { "ac": "AC4", "test_file": "tests/acceptance_ac4.rs", "test_name": "loop_guard_self_echo_not_applied" },
+    { "ac": "AC5", "test_file": "tests/acceptance_ac5.rs", "test_name": "seq_persists_across_restart" },
+    { "ac": "AC6", "test_file": "tests/mocks/ac6.rs", "test_name": "mock_round_trip_selftest", "deferred": true },
+    { "ac": "AC7", "test_file": "tests/acceptance_ac7.rs", "test_name": "sigpipe_reset_is_first_statement_in_main" }
+  ]
+}
