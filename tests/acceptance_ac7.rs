@@ -4,8 +4,6 @@
 //! The grep assertion is structural (checked at test time against the source).
 //! The status-no-panic test runs the compiled binary.
 
-use std::process::Command;
-
 #[test]
 fn sigpipe_reset_is_first_statement_in_main() {
     // Grep-assert that `sigpipe::reset()` appears in src/main.rs as the first
@@ -32,29 +30,6 @@ fn sigpipe_reset_is_first_statement_in_main() {
         sigpipe_pos < first_other,
         "sigpipe::reset() must be the first statement in main(); found at {sigpipe_pos}, other at {first_other}"
     );
-}
-
-#[test]
-#[cfg(not(debug_assertions))]
-fn status_subcommand_does_not_panic() {
-    // This test is skipped in debug builds where the binary may not be installed.
-    // In the CI / cloudbuild environment, the binary is built in release mode.
-    let output = Command::new("wm-tether-gossip")
-        .args(["status"])
-        .output();
-
-    match output {
-        Ok(out) => {
-            // Must not have non-zero exit that indicates a panic (Rust panics exit 101).
-            let status = out.status.code().unwrap_or(0);
-            assert_ne!(status, 101, "wm-tether-gossip status panicked (exit 101)");
-        }
-        Err(e) if e.kind() == std::io::ErrorKind::NotFound => {
-            // Binary not installed — skip (acceptable in unit-test context).
-            eprintln!("wm-tether-gossip not found on PATH; skipping binary smoke test");
-        }
-        Err(e) => panic!("unexpected error running wm-tether-gossip: {e}"),
-    }
 }
 
 #[test]

@@ -2,7 +2,7 @@
 //! publish exactly one wm.fleet.gossip.append event whose body equals the appended
 //! block and whose seq is previous_seq + 1 (asserted against a captured publish sink).
 
-use tether_gossip::{append_to_file, file_byte_len, tail_and_publish, CaptureSink, DaemonState};
+use tether_gossip::{append_to_file, file_byte_len, tail_and_publish, CaptureSink, DaemonState, PublishSink};
 use tempfile::TempDir;
 
 #[test]

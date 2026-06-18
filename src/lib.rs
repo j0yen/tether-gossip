@@ -56,7 +56,7 @@ pub struct DaemonState {
     pub last_published_seq: u64,
     /// Last seq applied per remote node (`node_name` → `last_applied_seq`).
     pub last_applied: std::collections::HashMap<String, u64>,
-    /// Seen event IDs for dedup (bounded; old entries pruned when > MAX_DEDUP).
+    /// Seen event IDs for dedup (bounded; old entries pruned when > `MAX_DEDUP`).
     pub seen_ids: Vec<(String, u64)>,
 }
 

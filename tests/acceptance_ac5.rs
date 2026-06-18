@@ -1,7 +1,7 @@
 //! AC5: seq persists across restarts — after a restart, the next published
 //! event's seq continues from the persisted value, not from zero.
 
-use tether_gossip::{append_to_file, file_byte_len, tail_and_publish, CaptureSink, DaemonState};
+use tether_gossip::{append_to_file, file_byte_len, tail_and_publish, CaptureSink, DaemonState, PublishSink};
 use tempfile::TempDir;
 
 #[test]

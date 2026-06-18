@@ -13,6 +13,7 @@
 
 use tether_gossip::{
     append_to_file, apply_remote_event, file_byte_len, tail_and_publish, CaptureSink, DaemonState,
+    PublishSink,
 };
 use tempfile::TempDir;
 

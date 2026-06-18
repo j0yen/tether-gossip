@@ -1,6 +1,6 @@
 //! wm-tether-gossip — bidirectional gossip.md mirror over fleet bus.
-// tokio::select! macro generates pub(crate) types inside private modules; suppress the false positive.
-#![allow(clippy::redundant_pub_crate)]
+// tokio::select! macro generates pub types inside private modules; suppress the noise.
+#![allow(unreachable_pub)]
 //!
 //! # Usage
 //!
